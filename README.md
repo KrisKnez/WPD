@@ -8,6 +8,7 @@ It is quite simple. You just copy the files onto your web server and visit the /
 You can also use the git command to do this:
 
 > cd /var/www/html 
+
 > git clone https://github.com/ChrisDoesEverything/WPD.git
 
 # How Does It Work?
